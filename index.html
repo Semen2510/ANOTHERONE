@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой личный блог</title>
+    <!-- Подключаем красивый шрифт от Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Основные переменные цветов */
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5f7fa;
+            --text-color: #333;
+            --date-color: #888;
+            --card-bg: #ffffff;
+            --accent-bg: #e3f2fd;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Стили для карточек постов */
+        .post {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .post:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .post-date {
+            font-size: 0.9em;
+            color: var(--date-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: #eee;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.4em;
+        }
+
+        h3 {
+            color: #444;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            color: #2c3e50;
+            border-bottom-style: solid;
+        }
+
+        /* Списки */
+        ul, ol {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Блоки кода */
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #d63384;
+        }
+        
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        /* Цитаты */
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: var(--accent-bg);
+            font-style: italic;
+            color: #555;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Кнопка Назад */
+        .btn-back {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 20px;
+            text-decoration: none !important;
+        }
+
+        .btn-back:hover {
+            background-color: #357abd;
+            transform: scale(1.05);
+        }
+
+        /* Изображения */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        /* Специфичные блоки */
+        .kolyadka {
+            text-align: center;
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ffdcdc;
+        }
+
+        .file-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 5px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .file-link::before {
+            content: "📄"; 
+            font-size: 1.2em;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e1e4e8;
+            margin: 30px 0;
+        }
+
+        .footer-quote {
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body> 
+
+<div class="container">
+    <header>
+        <h1>Мой цифровой дневник</h1>
+        <p>Заметки, учеба и проекты</p>
+    </header>
+
+    <!-- Пост 1: Файлы -->
+    <div class="post">
+        <span class="post-date">05.05.2026</span>
+        <h3>Рабочие материалы</h3>
+        <a class="file-link" href="Новая таблица 05.05.xlsx">Скачать таблицу (05.05)</a>
+    </div>
+
+    <div class="post">
+        <span class="post-date">27.04.2026</span>
+        <a class="file-link" href="таблица 27.04.xlsx">Скачать таблицу (27.04)</a>
+    </div>
+
+    <div class="post">
+        <span class="post-date">22.04.2026</span>
+        <a class="file-link" href="Без имени лист 1.ods">Скачать ODS файл</a>
+    </div>
+
+    <div class="post">
+        <span class="post-date">13.04.2026</span>
+        <a class="file-link" href="диаграма2.drawio.png">Посмотреть диаграмму</a>
+    </div>
+
+    <!-- Пост 2: Нейросети -->
+    <div class="post">
+        <span class="post-date">30.03.2026</span>
+        <h2>Как работает нейронная сеть: простое объяснение</h2>
+        
+        <p>Нейронная сеть — это «черный ящик», который часто называют неинтерпретируемым.</p>
+        
+        <h3>🔹 Основные компоненты:</h3>
+        <ul>
+            <li><strong>Нейроны (узлы)</strong> — базовые элементы, которые принимают входные данные, умножают их на <em>веса</em>, добавляют <em>смещение (bias)</em> и пропускают результат через <em>функцию активации</em>.</li>
+            <li><strong>Слои</strong>:
+                <ul>
+                    <li><em>Входной слой</em> — получает признаки (например, возраст, стаж, цена).</li>
+                    <li><em>Скрытые слои</em> — выполняют промежуточные вычисления и извлекают абстрактные признаки.</li>
+                    <li><em>Выходной слой</em> — выдаёт итоговый прогноз (класс или число).</li>
+                </ul>
+            </li>
+            <li><strong>Функция активации</strong> (ReLU, sigmoid, tanh) — добавляет нелинейность, позволяя сети обучаться сложным зависимостям.</li>
+        </ul>
+
+        <h3>🔹 Процесс обучения (по шагам):</h3>
+        <ol>
+            <li><strong>Прямое распространение (Forward Pass)</strong>: данные проходят через сеть → получается прогноз.</li>
+            <li><strong>Вычисление ошибки</strong>: сравниваем прогноз с правильным ответом с помощью функции потерь (например, MSE).</li>
+            <li><strong>Обратное распространение (Backpropagation)</strong>: ошибка «распространяется назад», вычисляются градиенты.</li>
+            <li><strong>Обновление весов</strong>: оптимизатор (SGD, Adam) корректирует веса.</li>
+            <li><strong>Повтор</strong>: шаги повторяются много раз (эпох).</li>
+        </ol>
+
+        <blockquote>
+            <strong>Аналогия:</strong> Представьте команду экспертов. Каждый взвешивает информацию и передает дальше. Руководитель говорит, где ошиблись, и эксперты корректируют своё «доверие» к аргументам.
+        </blockquote>
+
+        <h3>🔹 Пример кода (псевдокод):</h3>
+        <pre><code># Прямой проход
+output = activation( input @ weights + bias )
+
+# Вычисление ошибки
+loss = mse(output, target)
+
+# Обратный проход и обновление
+weights = weights - learning_rate * gradient(loss, weights)</code></pre>
+
+        <h3>🔹 Сравнение методов:</h3>
+        <ul>
+            <li><em>Линейная регрессия</em>: Простая, интерпретируемая, но только линейные связи.</li>
+            <li><em>Дерево решений</em>: Правила «если-то». Понятно, но может переобучаться.</li>
+            <li><em>Нейросеть</em>: Мощная, для сложных данных, но сложна для объяснения.</li>
+        </ul>
+    </div>
+
+    <!-- Пост 3: Результаты моделей -->
+    <div class="post">
+        <span class="post-date">23.03.2026</span>
+        <h2>Результаты машинного обучения</h2>
+        
+        <h3>1. Кредитный скоринг</h3>
+        <p>Показатель точности (Accuracy): <code>0.69</code> (69%).</p>
+        <hr>
+        
+        <h3>2. Страхование КАСКО (Decision Tree)</h3>
+        <ul>
+            <li>Выборка: 1000 записей</li>
+            <li>Параметры: возраст, стаж, ДТП</li>
+            <li><strong>Точность модели: <code>0.99</code> (99.0%)</strong></li>
+        </ul>
+        <p>Модель отлично выявляет группы риска.</p>
+    </div>
+
+    <!-- Пост 4: Успеваемость -->
+    <div class="post">
+        <span class="post-date">16.03.2026</span>
+        <h2>Прогноз успеваемости</h2>
+        <ul>
+            <li>Время занятий: <code>5 часов</code></li>
+            <li>Прогнозируемый балл: <code>50.23</code></li>
+        </ul>
+    </div>
+
+    <!-- Пост 5: FAQ -->
+    <div class="post">
+        <span class="post-date">21.02.2026</span>
+        <h2>Частые вопросы (FAQ)</h2>
+        
+        <p><strong>❓ Как оплатить заказ?</strong><br>
+        ✅ Оплата производится стандартными способами на сайте.</p>
+        
+        <p><strong>❓ Сколько ждать заказ?</strong><br>
+        ✅ Наш стандартный срок доставки — 3–5 рабочих дней.</p>
+    </div>
+
+    <!-- Пост 6: Компьютерное зрение -->
+    <div class="post">
+        <span class="post-date">17.02.2026</span>
+        <h2>Computer Vision: Классификация</h2>
+        <p>Анализ изображения <em>boots.jpeg</em>:</p>
+        <ul>
+            <li>🏆 <strong>running shoe</strong> (беговая обувь): <code>99.45%</code></li>
+            <li>shoe store: <code>0.27%</code></li>
+            <li>clogs: <code>0.15%</code></li>
+        </ul>
+        <p>Модель уверена, что это спортивная обувь.</p>
+    </div>
+
+    <!-- Пост 7: Криптография -->
+    <div class="post">
+        <span class="post-date">19.01.2026</span>
+        <h2>Шифр Цезаря: Задачи</h2>
+        
+        <p><strong>1. Определение ключей:</strong></p>
+        <ul>
+            <li>АПЕЛЬСИН → САЦЬНВЩЮ (<code>k = 18</code>)</li>
+            <li>АБРИКОС → ЫЬЛГЕЙМ (<code>k = 28</code>)</li>
+        </ul>
+
+        <p><strong>2. Расшифровка:</strong></p>
+        <ul>
+            <li>ФХНЗКЧ → <strong>ПРИВЕТ</strong> (<code>k = 5</code>)</li>
+            <li>ЦЩЕБФ → <strong>ВЕСНА</strong> (<code>k = 20</code>)</li>
+        </ul>
+
+        <p><strong>3. Шифрование:</strong></p>
+        <p>КЛИМОВ (k=10) → <strong>ФХТЦШМ</strong></p>
+    </div>
+
+    <!-- Пост 8: Обо мне -->
+    <div class="post">
+        <span class="post-date">14.01.2026</span>
+        <p><strong>Мой домен:</strong> <a href="http://semen2510.github.io">semen2510.github.io</a></p>
+        <p>📧 <a href="mailto:klimovsa2010@mail.ru">Напишите мне</a></p>
+        
+        <blockquote>
+            Путешествие в тысячу миль начинается с одного шага (Лао Цзы)
+        </blockquote>
+
+        <button class="btn-back" onclick="window.history.back()">← Назад</button>
+    </div>
+
+    <!-- Пост 9: Архив 2025 -->
+    <div class="post">
+        <span class="post-date">20.12.2025</span>
+        <p>Первая встреча с куратором.</p>
+        <p>Иконки предоставлены ресурсом <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</p>
+    </div>
+
+    <div class="post">
+        <span class="post-date">01.12.2025</span>
+        <h2>Новогоднее настроение</h2>
+        <img src="Icons/rfhnbyrfydfz.png" alt="Новогодняя иконка" style="max-width: 150px; display: block; margin: 0 auto;">
+        <p>Приближается Новый год! Время огней, уютных семейных вечеров и традиционного салата «Оливье».</p>
+        <p>Я подготовила новогодние кроссворды (русский и английский), чтобы совместить праздник с пользой для ума.</p>
+    </div>
+
+    <div class="post kolyadka">
+        <span class="post-date">07.01.2026</span>
+        <h3>🎄 С Рождеством!</h3>
+        <p>
+            В ночь святую, в час волхвов,<br>
+            Зажглась звезда над миром вновь.<br>
+            Христос родился — свет и кров<br>
+            Для всех людей, для всех основ.
+        </p>
+        <p style="margin-top: 15px;">
+            <a href="https://content-studio.sberdevices.ru/media/019b16f5-d46d-7443-b8e4-276feb3439fc/019b1903-e7ef-7e56-aab2-c21c04647044.mp4#t=0.001" target="_blank">
+                🎥 Смотреть видео-колядку
+            </a>
+        </p>
+    </div>
+
+    <div class="post">
+        <span class="post-date">15.10.2025</span>
+        <p>Я сделала новогодние кроссворды для сайта моего друга: <a href="https://sabrinka-epilepsus.github.io/lellele/index.htm" target="_blank">Перейти на сайт</a>.</p>
+    </div>
+
+    <div class="footer-quote">
+        <p>01.09.2025 — Начало пути во Всемирную паутину.</p>
+        <p><a href="krossvordRU.html">Русский кроссворд</a> | <a href="krossvordEN.html">Английский кроссворд</a></p>
+    </div>
+
+</div>
+
+</body>
+</html>
